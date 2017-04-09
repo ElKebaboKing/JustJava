@@ -23,7 +23,7 @@ import static android.R.attr.name;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 99;
+    int quantity = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +96,10 @@ public class MainActivity extends AppCompatActivity {
 
     // This method is called when the minus button is clicked.
     public void decrement(View view) {
-        if(quantity > 2)
+        if(quantity > 1)
             quantity--;
+        else
+            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
