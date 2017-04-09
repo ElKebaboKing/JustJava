@@ -12,7 +12,8 @@
         android:textAllCaps="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/black"/>
 
     <CheckBox
         android:id="@+id/whipped_checkbox"
@@ -26,7 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -59,7 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:id="@+id/price_text_view"
