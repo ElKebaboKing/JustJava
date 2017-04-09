@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.R.attr.name;
 
@@ -22,7 +23,7 @@ import static android.R.attr.name;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    int quantity = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nameText = (EditText) findViewById(R.id.name);
         String name = nameText.getText().toString();
 
-        int price = calculatePrice();
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate));
 
     }
@@ -75,19 +76,27 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param quantity is the number of cups of coffee ordered
      */
-    private int calculatePrice() {
-        return quantity * 5;
+    private int calculatePrice(boolean addWhippedChream, boolean addChocolate) {
+        int multiplier = 5;
+        if (addWhippedChream)
+            multiplier++;
+        if (addChocolate)
+            multiplier++;
+        return quantity * multiplier;
     }
 
     // This method is called when the plus button is clicked.
     public void increment(View view) {
-        quantity++;
+        if (quantity < 100)
+            quantity++;
+        else
+            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
     // This method is called when the minus button is clicked.
     public void decrement(View view) {
-        if(quantity > 0)
+        if(quantity > 2)
             quantity--;
         displayQuantity(quantity);
     }
