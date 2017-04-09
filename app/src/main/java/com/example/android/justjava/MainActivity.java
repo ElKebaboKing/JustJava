@@ -2,10 +2,13 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.Editable;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import static android.R.attr.name;
 
 /*Add your package below.Package name can be found in the project's AndroidManifest.xml file.
         *This is the package name our example uses:
@@ -38,22 +41,26 @@ public class MainActivity extends AppCompatActivity {
         boolean hasChocolate = chocolateCheckBox.isChecked();
         //Log.v("MainActivity", "Has whipped cream: " + hasWhippedCream);
 
+        EditText nameText = (EditText) findViewById(R.id.name);
+        String name = nameText.getText().toString();
+
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price, hasWhippedCream, hasChocolate));
+        displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate));
 
     }
-    
+
     /**
      * Create summary of the order.
      *
+     * @param name of the customer
      * @param addWhippedCream is whether or not the user wants whipped cream topping
      * @param addChocolate is whether or not the user wants whipped cream topping
      * @param price of the order
      * @return text summary
      */
-    public String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate){
+    public String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate){
 
-        String priceMessage = "Name: Kaptain Kunal";
+        String priceMessage = "Name: "+ name;
         priceMessage += "\nAdd whipped cream? " + addWhippedCream;
         priceMessage += "\nAdd chocolate? " + addChocolate;
         priceMessage += "\nQuantity: " + quantity;

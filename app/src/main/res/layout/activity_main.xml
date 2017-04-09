@@ -12,11 +12,19 @@
         android:padding="16dp"
         tools:context=".MainActivity">
 
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textCapWords" />
+
         <TextView
             android:text="Toppings"
             android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/black"/>
 
