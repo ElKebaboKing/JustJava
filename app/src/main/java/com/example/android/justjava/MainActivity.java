@@ -75,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate){
 
-        String priceMessage = "Name: "+ name;
-        priceMessage += "\nAdd whipped cream? " + addWhippedCream;
-        priceMessage += "\nAdd chocolate? " + addChocolate;
-        priceMessage += "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $" + price;
-        priceMessage += "\nThank you!";
+        String priceMessage = getString(R.string.order_summary_name, name);
+        priceMessage += "\n" + getString(R.string.order_summary_add_cream, addWhippedCream);
+        priceMessage += "\n" + getString(R.string.order_summary_add_chocolate, addChocolate);
+        priceMessage += "\n" + getString(R.string.order_summary_quantity, quantity);
+        priceMessage += "\n" + getString(R.string.order_summary_total, price);
+        priceMessage += "\n" +getString(R.string.thank_you);
         return priceMessage;
     }
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         if (quantity < 100)
             quantity++;
         else
-            Toast.makeText(this, "You cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.inc_notif), Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         if(quantity > 1)
             quantity--;
         else
-            Toast.makeText(this, "You cannot have less than 1 coffee", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.dec_notif), Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
